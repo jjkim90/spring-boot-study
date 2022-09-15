@@ -6,6 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.zerock.ex2.entity.Memo;
 import org.zerock.ex2.repository.MemoRepository;
 
+import javax.transaction.Transactional;
 import java.util.Optional;
 import java.util.stream.IntStream;
 
@@ -35,5 +36,16 @@ public class MemoRepositoryTests {
             Memo memo = result.get();
             System.out.println(memo);
         }
+    }
+
+    @Transactional
+    @Test
+    public void testSelect2(){
+
+        Long mno = 100L;
+
+        Memo memo = memoRepository.getReferenceById(mno);
+        System.out.println("-------------------------------");
+        System.out.println(memo);
     }
 }
