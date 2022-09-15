@@ -48,4 +48,18 @@ public class MemoRepositoryTests {
         System.out.println("-------------------------------");
         System.out.println(memo);
     }
+
+    @Test
+    public void testUpdate(){
+        Memo memo = Memo.builder().mno(100L).memoText("Update Text").writer("Update Writer").build();
+
+        System.out.println(memoRepository.save(memo));
+    }
+
+    @Test
+    public void testDelete(){
+
+        Long mno = 100L;
+        memoRepository.deleteById(mno);
+    }
 }
